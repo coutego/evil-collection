@@ -48,59 +48,59 @@
     "gk"      'mastodon-tl--previous-tab-item ; use 'gk'?
 
     ;; navigation out of mastodon
-    (kbd "C-c q")   'kill-current-buffer
-    (kbd "C-c Q")   'kill-buffer-and-window
+    (kbd ", q")   'kill-current-buffer
+    (kbd ", Q")   'kill-buffer-and-window
 
     ;; navigation between timelines
-    (kbd "C-c #")   'mastodon-tl--get-tag-timeline
-    (kbd "C-c A")   'mastodon-profile--get-toot-author
-    (kbd "C-c F")   'mastodon-tl--get-federated-timeline
-    (kbd "C-c H")   'mastodon-tl--get-home-timeline
-    (kbd "C-c L")   'mastodon-tl--get-local-timeline
-    (kbd "C-c N")   'mastodon-notifications--get
-    (kbd "C-c P")   'mastodon-profile--show-user
-    (kbd "C-c T")   'mastodon-tl--thread
+    (kbd ", #")   'mastodon-tl--get-tag-timeline
+    (kbd ", A")   'mastodon-profile--get-toot-author
+    (kbd ", F")   'mastodon-tl--get-federated-timeline
+    (kbd ", H")   'mastodon-tl--get-home-timeline
+    (kbd ", L")   'mastodon-tl--get-local-timeline
+    (kbd ", N")   'mastodon-notifications--get
+    (kbd ", P")   'mastodon-profile--show-user
+    (kbd ", T")   'mastodon-tl--thread
 
      ;; timeline actions
-    (kbd "C-c b")   'mastodon-toot--toggle-boost
-    (kbd "C-c c")   'mastodon-tl--toggle-spoiler-text-in-toot
-    (kbd "C-c f")   'mastodon-toot--toggle-favourite
-    (kbd "C-c r")   'mastodon-toot--reply
-    (kbd "C-c u")   'mastodon-tl--update
+    (kbd ", b")   'mastodon-toot--toggle-boost
+    (kbd ", c")   'mastodon-tl--toggle-spoiler-text-in-toot
+    (kbd ", f")   'mastodon-toot--toggle-favourite
+    (kbd ", r")   'mastodon-toot--reply
+    (kbd ", u")   'mastodon-tl--update
 
     ;; new toot
-    (kbd "C-c t")   'mastodon-toot
+    (kbd ", t")   'mastodon-toot
 
     ;; override special mode binding
     "g"       'undefined ; FIXME: check whether this is needed
 
     ;; mousebot additions
-    (kbd "C-c W")   'mastodon-tl--follow-user
+    (kbd ", W")   'mastodon-tl--follow-user
     (kbd "C-S-W")   'mastodon-tl--unfollow-user
-    (kbd "C-c B")   'mastodon-tl--block-user
+    (kbd ", B")   'mastodon-tl--block-user
     (kbd "C-S-B")   'mastodon-tl--unblock-user
-    (kbd "C-c M")   'mastodon-tl--mute-user
+    (kbd ", M")   'mastodon-tl--mute-user
     (kbd "C-S-M")   'mastodon-tl--unmute-user
-    (kbd "C-c O")   'mastodon-profile--my-profile
-    (kbd "C-c S")   'mastodon-search--search-query
-    (kbd "C-c d")   'mastodon-toot--delete-toot
-    (kbd "C-c D")   'mastodon-toot--delete-and-redraft-toot
-    (kbd "C-c C")   'mastodon-toot--copy-toot-url
-    (kbd "C-c i")   'mastodon-toot--pin-toot-toggle
-    (kbd "C-c V")   'mastodon-profile--view-favourites
-    (kbd "C-c R")   'mastodon-profile--view-follow-requests
-    ;; "C-c h" 'mastodon-async--stream-home
-    ;; "C-c f" 'mastodon-async--stream-federated
-    ;; "C-c l" 'mastodon-async--stream-local
-    ;; "C-c n" 'mastodon-async--stream-notifications
-    (kbd "C-c U")   'mastodon-profile--update-user-profile-note
-    (kbd "C-c a")   'mastodon-notifications--follow-request-accept
-    (kbd "C-c j")   'mastodon-notifications--follow-request-reject
-    (kbd "C-c v")   'mastodon-tl--poll-vote
-    (kbd "C-c k")   'mastodon-toot--bookmark-toot-toggle
-    (kbd "C-c K")   'mastodon-profile--view-bookmarks
-    (kbd "C-c I")   'mastodon-tl--view-filters
-    (kbd "C-c G")   'mastodon-tl--get-follow-suggestions
+    (kbd ", O")   'mastodon-profile--my-profile
+    (kbd ", S")   'mastodon-search--search-query
+    (kbd ", d")   'mastodon-toot--delete-toot
+    (kbd ", D")   'mastodon-toot--delete-and-redraft-toot
+    (kbd ", C")   'mastodon-toot--copy-toot-url
+    (kbd ", i")   'mastodon-toot--pin-toot-toggle
+    (kbd ", V")   'mastodon-profile--view-favourites
+    (kbd ", R")   'mastodon-profile--view-follow-requests
+    ;; ", h" 'mastodon-async--stream-home
+    ;; ", f" 'mastodon-async--stream-federated
+    ;; ", l" 'mastodon-async--stream-local
+    ;; ", n" 'mastodon-async--stream-notifications
+    (kbd ", U")   'mastodon-profile--update-user-profile-note
+    (kbd ", a")   'mastodon-notifications--follow-request-accept
+    (kbd ", j")   'mastodon-notifications--follow-request-reject
+    (kbd ", v")   'mastodon-tl--poll-vote
+    (kbd ", k")   'mastodon-toot--bookmark-toot-toggle
+    (kbd ", K")   'mastodon-profile--view-bookmarks
+    (kbd ", I")   'mastodon-tl--view-filters
+    (kbd ", G")   'mastodon-tl--get-follow-suggestions
     ;; (when (require 'lingva nil :no-error)
     ;;   (define-key map (kbd "s") #'mastodon-toot--translate-toot-text))
     ;; map)
