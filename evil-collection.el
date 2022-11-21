@@ -247,6 +247,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     magit-todos
     markdown-mode
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
+    mastodon
     monky
     mpc
     mpdel
@@ -330,8 +331,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     yaml-mode
     youtube-dl
     zmusic
-    (ztree ztree-diff ztree-dir)
-    mastodon)
+    (ztree ztree-diff ztree-dir))
   "List of modes supported by evil-collection. Elements are
 either target mode symbols or lists which `car' is the mode
 symbol and `cdr' the packages to register.")
