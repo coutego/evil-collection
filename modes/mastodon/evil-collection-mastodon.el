@@ -36,71 +36,67 @@
                                             mastodon-button-map))
 
 
-
 ;;;###autoload
 (defun evil-collection-mastodon-setup ()
   (evil-collection-set-readonly-bindings 'mastodon-mode-map)
   (evil-collection-define-key 'normal 'mastodon-mode-map
 
-    "]]"      'mastodon-tl--goto-next-toot
-    "[["      'mastodon-tl--goto-prev-toot
-    "gj"      'mastodon-tl--next-tab-item ; use 'gj'?
-    "gk"      'mastodon-tl--previous-tab-item ; use 'gk'?
+    "]]"          '("Next toot" . mastodon-tl--goto-next-toot)
+    "[["          '("Previous toot" . mastodon-tl--goto-prev-toot)
+    "gj"          '("Next tab item" . mastodon-tl--next-tab-item)
+    "gk"          '("Previus tab item" . mastodon-tl--previous-tab-item)
 
     ;; navigation out of mastodon
-    (kbd "C-c q")   'kill-current-buffer
-    (kbd "C-c Q")   'kill-buffer-and-window
+    (kbd ", q")   '("Kill curr buffer" . kill-current-buffer)
+    (kbd ", Q")   '("Kill buffer & window" . kill-buffer-and-window)
 
     ;; navigation between timelines
-    (kbd "C-c #")   'mastodon-tl--get-tag-timeline
-    (kbd "C-c A")   'mastodon-profile--get-toot-author
-    (kbd "C-c F")   'mastodon-tl--get-federated-timeline
-    (kbd "C-c H")   'mastodon-tl--get-home-timeline
-    (kbd "C-c L")   'mastodon-tl--get-local-timeline
-    (kbd "C-c N")   'mastodon-notifications--get
-    (kbd "C-c P")   'mastodon-profile--show-user
-    (kbd "C-c T")   'mastodon-tl--thread
+    (kbd ", #")   '("Tag timeline" . mastodon-tl--get-tag-timeline)
+    (kbd ", A")   '("Toot author" . mastodon-profile--get-toot-author)
+    (kbd "<leader> F")   '("Federated timeline" . mastodon-tl--get-federated-timeline)
+    (kbd ", H")   '("Home timeline" . mastodon-tl--get-home-timeline)
+    (kbd ", L")   '("Local timeline" . mastodon-tl--get-local-timeline)
+    (kbd ", N")   '("Notifications" . mastodon-notifications--get)
+    (kbd ", P")   '("Show user" . mastodon-profile--show-user)
+    (kbd ", T")   '("Thread" . mastodon-tl--thread)
 
      ;; timeline actions
-    (kbd "C-c b")   'mastodon-toot--toggle-boost
-    (kbd "C-c c")   'mastodon-tl--toggle-spoiler-text-in-toot
-    (kbd "C-c f")   'mastodon-toot--toggle-favourite
-    (kbd "C-c r")   'mastodon-toot--reply
-    (kbd "C-c u")   'mastodon-tl--update
+    (kbd ", b")   '("Toggle boost" . mastodon-toot--toggle-boost)
+    (kbd ", c")   '("Toggle spoiler" . mastodon-tl--toggle-spoiler-text-in-toot)
+    (kbd ", f")   '("Tooggle favourite" . mastodon-toot--toggle-favourite)
+    (kbd ", r")   '("Reply" . mastodon-toot--reply)
+    (kbd ", u")   '("Update" . mastodon-tl--update)
 
     ;; new toot
-    (kbd "C-c t")   'mastodon-toot
-
-    ;; override special mode binding
-    "g"       'undefined ; FIXME: check whether this is needed
+    (kbd ", t")   '("Toot" . mastodon-toot)
 
     ;; mousebot additions
-    (kbd "C-c W")   'mastodon-tl--follow-user
-    (kbd "C-S-W")   'mastodon-tl--unfollow-user
-    (kbd "C-c B")   'mastodon-tl--block-user
-    (kbd "C-S-B")   'mastodon-tl--unblock-user
-    (kbd "C-c M")   'mastodon-tl--mute-user
-    (kbd "C-S-M")   'mastodon-tl--unmute-user
-    (kbd "C-c O")   'mastodon-profile--my-profile
-    (kbd "C-c S")   'mastodon-search--search-query
-    (kbd "C-c d")   'mastodon-toot--delete-toot
-    (kbd "C-c D")   'mastodon-toot--delete-and-redraft-toot
-    (kbd "C-c C")   'mastodon-toot--copy-toot-url
-    (kbd "C-c i")   'mastodon-toot--pin-toot-toggle
-    (kbd "C-c V")   'mastodon-profile--view-favourites
-    (kbd "C-c R")   'mastodon-profile--view-follow-requests
+    (kbd ", W")   '("Follow user" . mastodon-tl--follow-user)
+    (kbd ", C-W") '("Unfollow user" . mastodon-tl--unfollow-user)
+    (kbd ", B")   '("Block user" . mastodon-tl--block-user)
+    (kbd ", C-B") '("Unblock user" . mastodon-tl--unblock-user)
+    (kbd ", M")   '("Mute user" . mastodon-tl--mute-user)
+    (kbd ", C-M") '("Unmute user" . mastodon-tl--unmute-user)
+    (kbd ", O")   '("My profile" . mastodon-profile--my-profile)
+    (kbd ", S")   '("Search query" . mastodon-search--search-query)
+    (kbd ", d")   '("Delete toot" . mastodon-toot--delete-toot)
+    (kbd ", D")   '("Redraft toot" . mastodon-toot--delete-and-redraft-toot)
+    (kbd ", C")   '("Toot url" . mastodon-toot--copy-toot-url)
+    (kbd ", i")   '("Toot toogle" . mastodon-toot--pin-toot-toggle)
+    (kbd ", V")   '("View favourites" . mastodon-profile--view-favourites)
+    (kbd ", R")   '("View follow requests" . mastodon-profile--view-follow-requests)
     ;; "C-c h" 'mastodon-async--stream-home
     ;; "C-c f" 'mastodon-async--stream-federated
     ;; "C-c l" 'mastodon-async--stream-local
     ;; "C-c n" 'mastodon-async--stream-notifications
-    (kbd "C-c U")   'mastodon-profile--update-user-profile-note
-    (kbd "C-c a")   'mastodon-notifications--follow-request-accept
-    (kbd "C-c j")   'mastodon-notifications--follow-request-reject
-    (kbd "C-c v")   'mastodon-tl--poll-vote
-    (kbd "C-c k")   'mastodon-toot--bookmark-toot-toggle
-    (kbd "C-c K")   'mastodon-profile--view-bookmarks
-    (kbd "C-c I")   'mastodon-tl--view-filters
-    (kbd "C-c G")   'mastodon-tl--get-follow-suggestions
+    (kbd ", U")   '("Update user profile note" . mastodon-profile--update-user-profile-note)
+    (kbd ", a")   '("Accept follow request" . mastodon-notifications--follow-request-accept)
+    (kbd ", j")   '("Reject follow request" . mastodon-notifications--follow-request-reject)
+    (kbd ", v")   '("Vote on poll" . mastodon-tl--poll-vote)
+    (kbd ", k")   '("Toggle bookmark toot" . mastodon-toot--bookmark-toot-toggle)
+    (kbd ", K")   '("View bookmarks" . mastodon-profile--view-bookmarks)
+    (kbd ", I")   '("View filters" . mastodon-tl--view-filters)
+    (kbd ", G")   '("Follow suggestions" . mastodon-tl--get-follow-suggestions)
     ;; (when (require 'lingva nil :no-error)
     ;;   (define-key map (kbd "s") #'mastodon-toot--translate-toot-text))
     ;; map)
